@@ -9,7 +9,7 @@ function preload(){
     backgroundImg = loadImage("Assets/BackgroundImg.jpg");
     game1background = loadImage("Assets/game1background.png");
     game2background = loadImage("Assets/game2background.png");
-    game3background = loadImage("Assets/game3background.png");
+    game3background = loadImage("https://mohamedrazeen102006.github.io/Father-s-Day-Project/BackgroundMusic.mp3");
     soundImg = loadImage("Assets/soundImg.png");
     // Your web app's Firebase configuration
     var firebaseConfig = {
