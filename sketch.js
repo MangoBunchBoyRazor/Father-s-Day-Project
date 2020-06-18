@@ -176,7 +176,7 @@ function draw(){
         textAlign(LEFT);
         textSize(15);
         fill(0,0,255,255);    
-        text("You can also retrieve a saved journal entry by typing the name",255,203);
+        text("You can also retrieve a saved journal entry by typing the name",300,203);
         text("You need to type the journal entry here in order to save the journal entry",20,180);
     }
     else if(gameState === "MiniGame"){
