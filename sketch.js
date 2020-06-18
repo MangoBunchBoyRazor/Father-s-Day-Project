@@ -23,7 +23,7 @@ function preload(){
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    backgroundSnd = loadSound("Assets/BackGroundMusic.mp3");
+    backgroundSnd = loadSound("BackGroundMusic.mp3");
 }
 function setup(){
     createCanvas(800,600);
@@ -193,7 +193,7 @@ function draw(){
         text("You can unlock players by playing the games",40,225);
         text("Or create your own player on the dad creation screen",40,240);
         if(toDraw){
-            drawCharacter(50,325,character);
+            drawCharacter(25,300,character,2);
         }
         if(minigamestate != "start"){
             games[game]();
@@ -213,12 +213,13 @@ function draw(){
         text("Score:"+score,width/2,25);
         pop();
     }
+    if(minigamestate != "playing" && minigamestate != "over")
     image(soundImg,0,height-75);
 }
 function mousePressed(){
     if(mouseX>width/2-175&&mouseX<525&&mouseY<575&&mouseY>225&&gameState==="play")
         drawPath();
-    if(mouseX > 0 && mouseX < 75 && mouseY > 525 && mouseY < height)
+    if(mouseX > 0 && mouseX < 75 && mouseY > 525 && mouseY < height && minigamestate != "playing" && minigamestate != "over")
         ToggleSound();
 }
 function mouseReleased(){

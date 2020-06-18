@@ -2,7 +2,7 @@ var games = [game1, game2, game3], game = 0, minigamestate = "start", timer, cha
 var Car = null, Car2 = null, elder = null;
 var viruses = [], house, house1, house2, thief, thiefImgs;
 
-function drawCharacter(x,y,index){
+function drawCharacter(x,y,index,number){
     let data = drawingData.val();
     let playerImg = data[index];
     push();
@@ -14,7 +14,7 @@ function drawCharacter(x,y,index){
             let colors = playerImg.drawing[i].color.levels;
             let points = playerImg.drawing[i].points;
             stroke(colors[0],colors[1],colors[2],colors[3]);
-            vertex(points[j].x/7,points[j].y/7);
+            vertex(points[j].x/number,points[j].y/number);
         }
         endShape();
     }
@@ -85,6 +85,8 @@ function game1(){
         textAlign(CENTER);
         fill(0,255,255,230);
         text("Help the elders cross the road!",width/2,100);
+        textSize(20);
+        text("Use the mouse to drag them to the other side",width/2,125);
         pop();
         let cars = [
             loadImage("Assets/car1.png"),
@@ -93,7 +95,7 @@ function game1(){
             loadImage("Assets/car4.png")
         ];
         let car = 0;
-        drawCharacter(mouseX,mouseY,character);
+        drawCharacter(mouseX,mouseY,character,7);
         if(frameCount%60===0){
             car = round(random(0,3));
             Car = new Carc(0,random(100,286),car,cars,12);
@@ -157,11 +159,12 @@ function game2(){
     pop();
     let images = [loadImage("Assets/virus1.png"),loadImage("Assets/virus2.png")];
     if(minigamestate == "playing"){
-        drawCharacter(mouseX,mouseY,character);
+        drawCharacter(mouseX,mouseY,character,7);
         push();
         textSize(20);
         textAlign(CENTER);
         text("Keep the germs away from your house!",width/2,100);
+        text("Drag them away from the house",width/2,125);
         pop();
         if(frameCount%150==0){
             viruses.push(new Virus(random(0,75),random(0,600),images));
@@ -206,12 +209,14 @@ function game3(){
         {   x: 660, y: 510  }
     ];
     if(minigamestate === "playing"){
-        drawCharacter(mouseX,mouseY,character);
+        drawCharacter(mouseX,mouseY,character,7);
         push();
         textAlign(CENTER);
         textSize(23);
         fill(0,0,0);
         text("Catch the thieves!",width/2,100);
+        textSize(20);
+        text("Click on them",width/2,125);
         pop();
         if(frameCount%60==0){
             let pos = round(random(0,4));
