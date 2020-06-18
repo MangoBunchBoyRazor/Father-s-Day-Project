@@ -22,7 +22,7 @@ function create(){
     saveBtn.class('button');
     saveBtn.position(350,525);
     clearBtn.position(425,525);
-    colorPicker.position(384,215);
+    colorPicker.position(285,215);
     clearBtn.mouseClicked(function(){drawingArr = [];});
     saveBtn.mouseClicked(saveDrawing);
     drawingArr = [];

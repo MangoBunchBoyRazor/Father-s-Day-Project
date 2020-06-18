@@ -11,7 +11,7 @@ function preload(){
     game2background = loadImage("Assets/game2background.png");
     game3background = loadImage("Assets/game3background.png");
     soundImg = loadImage("Assets/soundImg.png");
-    // Your web app's Firebase configuration
+    //Firebase Database config
     var firebaseConfig = {
         apiKey: "AIzaSyApgwGl_2u-ka2IL3eZkNXsET29KjGN0-4",
         authDomain: "test-project-a08e8.firebaseapp.com",
@@ -163,7 +163,8 @@ function draw(){
         text("You can try to draw your dad here",400,175);
         fill(0,0,0);
         text("Good Luck!",400,195);
-        text("Color",340,215);
+        fill(color(elements[6].value()));
+        text("Color",245,218);
         update();
     }
     else if(gameState === "journal"){
