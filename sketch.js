@@ -5,6 +5,7 @@ var elements = [],score = 0;
 var database, drawingData, journalData, drawingKeys = [], journalKeys = [];
 var backgroundSnd;
 function preload(){
+    soundFormats('mp3');
     backgroundImg = loadImage("Assets/BackgroundImg.jpg");
     game1background = loadImage("Assets/game1background.png");
     game2background = loadImage("Assets/game2background.png");
