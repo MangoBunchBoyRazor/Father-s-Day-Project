@@ -173,11 +173,10 @@ function draw(){
         fill(0,0,0);  
         textSize(20);
         text("Here you can write anything with your Dad!",width/2,150);
-        textSize(15);
-        text("Note: I created this because I like to write a lot with my dad and I encourage you to do that too!:)",width/2,height-50);
         textAlign(LEFT);
-        fill(255,0,0,200);
-        text("You can also retrieve a saved journal entry by typing the name",300,200);
+        textSize(15);
+        fill(0,0,255,255);    
+        text("You can also retrieve a saved journal entry by typing the name",255,203);
         text("You need to type the journal entry here in order to save the journal entry",20,180);
     }
     else if(gameState === "MiniGame"){
