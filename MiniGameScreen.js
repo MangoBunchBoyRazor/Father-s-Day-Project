@@ -13,6 +13,7 @@ function drawCharacter(x,y,index,number){
         for(j = 0; j < playerImg.drawing[i].points.length; j++){
             let colors = playerImg.drawing[i].color.levels;
             let points = playerImg.drawing[i].points;
+            strokeWeight(playerImg.drawing[i].strokeWeight);
             stroke(colors[0],colors[1],colors[2],colors[3]);
             vertex(points[j].x/number,points[j].y/number);
         }
