@@ -1,7 +1,7 @@
 //const {World,Bodies,Body,Engine} = Matter;
 var backgroundImg, game1background, game2background, game3background, soundImg;
 var gameState = "start";
-var elements = [],score = 0;
+var elements = [],score = 0, canvas;
 var database, drawingData, journalData, drawingKeys = [], journalKeys = [];
 var backgroundSnd;
 function preload(){
@@ -27,7 +27,7 @@ function preload(){
     backgroundSnd = loadSound("https://raw.githubusercontent.com/MohamedRazeen102006/Father-s-Day-Project/master/BackgroundMusic.mp3");
 }
 function setup(){
-    createCanvas(800,600);
+    canvas = createCanvas(800,600);
     CreateDOMElements(gameState);
 
     //Get all the values from the database
@@ -90,6 +90,9 @@ function CreateDOMElements(mode){
             let plBtn1 = createButton('go to Dad Creation');
             let nameInput = createInput('Your journal entry');
             let textarea = createElement('textarea',"You need to give a name to your entry to save it. If you want to retrieve a saved entry then type the name of the entry in the text box");
+            //let iframe = createElement('iframe');
+            //iframe.size(750,300);
+            //iframe.elt.setAttribute('src','iframe.html');
             let saveButton = createButton('Save');
             mgBtn2.class('button');
             plBtn1.class('button');
@@ -97,17 +100,21 @@ function CreateDOMElements(mode){
             nameInput.class('inpClass');
             mgBtn2.position(50,25);
             plBtn1.position(630,25);
-            saveButton.position(725,475);
-            nameInput.position(40,200);
             textarea.position(40,225);
+            saveButton.position(725,475);
+            nameInput.position(40,175);
+           // iframe.position(40,225);
             mgBtn2.mouseClicked(ChangeModeToMiniGame);
             plBtn1.mouseClicked(ChangeModeToPlay);
             saveButton.mouseClicked(saveEntry);
             nameInput.input(searchKeysForEntry);
             nameInput.style('width','20%');
-            textarea.style('resize','none');
             textarea.size(750,300);
-            elements.push(mgBtn2,plBtn1,textarea,nameInput,saveButton);
+            textarea.style('resize','none');
+            textarea.style('border-radius','10');
+            //iframe.style('border','5px solid black');
+            //iframe.style('border-radius','10px');
+            elements.push(mgBtn2,plBtn1,nameInput,saveButton,/*iframe*/textarea);
             break;
         case "MiniGame":
             let button1 = createButton('go to Dad Creation');
@@ -163,21 +170,23 @@ function draw(){
         text("You can try to draw your dad here",400,175);
         fill(0,0,0);
         text("Good Luck!",400,195);
-        fill(color(elements[6].value()));
-        text("Color",245,218);
+        fill(0,0,0);
+        textAlign(LEFT);
+        text("Color",35,248);
+        text("Stroke Radius",35,298);
         update();
     }
     else if(gameState === "journal"){
         fill(255,0,0,200);
-        text("Journal",width/2,100); 
+        text("Journal",width/2,75); 
         fill(0,0,0);  
         textSize(20);
-        text("Here you can write anything with your Dad!",width/2,150);
+        text("Here you can write anything with your Dad!",width/2,125);
         textAlign(LEFT);
         textSize(15);
         fill(0,0,255,255);    
-        text("You can also retrieve a saved journal entry by typing the name",300,203);
-        text("You need to type the journal entry here in order to save the journal entry",20,180);
+        text("You can also retrieve a saved journal entry by typing the name",300,178);
+        text("You need to type the journal entry here in order to save the journal entry",20,155);
     }
     else if(gameState === "MiniGame"){
         textAlign(CENTER);

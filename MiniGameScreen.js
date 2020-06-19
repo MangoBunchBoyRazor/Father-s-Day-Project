@@ -29,7 +29,7 @@ function searchKeysForDrawing(){
                 return null;
             }
         }
-        character = drawingKeys[i];
+        character = drawingKeys[0];
         return null;
     }
 }
