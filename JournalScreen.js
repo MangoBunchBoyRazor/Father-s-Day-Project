@@ -56,3 +56,7 @@ function execCmdRedo(){
     let rtfld = elements[4].contentDocument;
     rtfld.execCommand('redo',false,null);
 }
+function execCmdUnderline(){
+    let rtfld = elements[4].contentDocument;
+    rtfld.execCommand('underline',false,null);
+}
